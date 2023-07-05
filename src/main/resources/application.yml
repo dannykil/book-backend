@@ -1,0 +1,23 @@
+server:
+  servlet: 
+    encoding: 
+      charset: utf-8
+      enabled: true
+
+spring:
+  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book?serverTimezone=Asia/Seoul
+    username: root
+    password: 111111
+  
+  jpa: 
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
