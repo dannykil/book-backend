@@ -10,7 +10,7 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <!-- <property name="javax.persistence.jdbc.password" value="111111"/> -->
             <property name="javax.persistence.jdbc.password" value="11111111"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://palpage.cxmywrhxhdno.ap-northeast-2.rds.amazonaws.com:3306/8page"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://palpage.cxmywrhxhdno.ap-northeast-2.rds.amazonaws.com:3306/book"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <!--  <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/> -->
 
