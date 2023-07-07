@@ -173,7 +173,7 @@ public class BookControllerIntegreTest {
 		String content = new ObjectMapper().writeValueAsString(books);
 		
 		// 2) when
-		ResultActions resultAction = mockMvc.perform(delete("/book/{id}", 11)
+		ResultActions resultAction = mockMvc.perform(delete("/book/{id}", id)
 				.accept(MediaType.TEXT_PLAIN_VALUE)); 
 		
 		// 3) then
