@@ -59,7 +59,10 @@ public class BookControllerIntegreTest {
 //		books.add(new Book(null, "리액트 따라하기", "코스"));
 //		books.add(new Book(null, "Junit 따라하기", "코스"));
 //		bookRepository.saveAll(books);
-		entityManager.createNativeQuery("ALTER TABLE book ALTER COLUMN id RESTART WITH 1").executeUpdate();
+		
+		//2023.07.07 수
+		//entityManager.createNativeQuery("ALTER TABLE book ALTER COLUMN id RESTART WITH 1").executeUpdate();
+		entityManager.createNativeQuery("ALTER TABLE book ALTER COLUMN id START WITH 1").executeUpdate();
 	}
 	
 //	@AfterEach
