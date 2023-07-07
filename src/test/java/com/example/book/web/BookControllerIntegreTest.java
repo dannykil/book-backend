@@ -108,7 +108,8 @@ public class BookControllerIntegreTest {
 		resultAction.andExpect(status().isOk())
 //				.andExpect(jsonPath("$", Matchers.hasSize(3)))
 				.andExpect(jsonPath("$.[0].id").value(11L))
-				.andExpect(jsonPath("$.[2].title").value("Junit 따라하기"))
+				//.andExpect(jsonPath("$.[2].title").value("Junit 따라하기"))
+				.andExpect(jsonPath("$.[2].title").value("스프링부트 따라하기"))
 				.andDo(MockMvcResultHandlers.print());
 	}
 	
