@@ -116,7 +116,8 @@ public class BookControllerIntegreTest {
 	@Test
 	public void findById_테스트() throws Exception {
 		// 1) given
-		Long id = 2L;
+		//Long id = 2L;
+		Long id = 11L;
 		List<Book> books = new ArrayList<>(); 
 		books.add(new Book(null, "스프링부트 따라하기", "코스"));
 		books.add(new Book(null, "리액트 따라하기", "코스"));
