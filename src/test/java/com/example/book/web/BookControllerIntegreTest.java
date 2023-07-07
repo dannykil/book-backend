@@ -107,7 +107,7 @@ public class BookControllerIntegreTest {
 		// import org.hamcrest.Matchers; - 수동으로 import해줌
 		resultAction.andExpect(status().isOk())
 //				.andExpect(jsonPath("$", Matchers.hasSize(3)))
-				.andExpect(jsonPath("$.[0].id").value(1L))
+				.andExpect(jsonPath("$.[0].id").value(11L))
 				.andExpect(jsonPath("$.[2].title").value("Junit 따라하기"))
 				.andDo(MockMvcResultHandlers.print());
 	}
