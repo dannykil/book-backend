@@ -62,7 +62,6 @@ public class BookControllerIntegreTest {
 		
 		//2023.07.07 수
 		//entityManager.createNativeQuery("ALTER TABLE book ALTER COLUMN id RESTART WITH 1").executeUpdate();
-		entityManager.createNativeQuery("ALTER TABLE book ALTER COLUMN id START WITH 1").executeUpdate();
 	}
 	
 //	@AfterEach
