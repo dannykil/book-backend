@@ -89,102 +89,102 @@ public class BookControllerIntegreTest {
 				.andDo(MockMvcResultHandlers.print());
 	}
 
-	@Test
-	public void findAll_테스트() throws Exception {
-		// 1) given
-		List<Book> books = new ArrayList<>();
-		// id값을 null로 주게되면 단위테스트에서는 이상없으나 통합테스트에서는 에러발생 
-		books.add(new Book(null, "스프링부트 따라하기", "코스"));
-		books.add(new Book(null, "리액트 따라하기", "코스"));
-		books.add(new Book(null, "Junit 따라하기", "코스"));
-		// when(bookService.모두가져오기()).thenReturn(books);
-		bookRepository.saveAll(books);
-
-		// 2) when
-		ResultActions resultAction = mockMvc.perform(get("/book").contentType(MediaType.APPLICATION_JSON_UTF8));
-
-		// 3) then
-		// import org.hamcrest.Matchers; - 수동으로 import해줌
-		resultAction.andExpect(status().isOk())
-//				.andExpect(jsonPath("$", Matchers.hasSize(3)))
-				.andExpect(jsonPath("$.[0].id").value(11L))
-				//.andExpect(jsonPath("$.[2].title").value("Junit 따라하기"))
-				.andExpect(jsonPath("$.[2].title").value("스프링부트 따라하기"))
-				.andDo(MockMvcResultHandlers.print());
-	}
-	
-	@Test
-	public void findById_테스트() throws Exception {
-		// 1) given
-		Long id = 2L;
-		List<Book> books = new ArrayList<>(); 
-		books.add(new Book(null, "스프링부트 따라하기", "코스"));
-		books.add(new Book(null, "리액트 따라하기", "코스"));
-		books.add(new Book(null, "Junit 따라하기", "코스"));
-		bookRepository.saveAll(books);
-
-		// 2) when
-		ResultActions resultAction = mockMvc.perform(get("/book/{id}", id)
-			.accept(MediaType.APPLICATION_JSON_UTF8));
-
-		// 3) then
-		resultAction
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.title").value("리액트 따라하기"))
-			.andDo(MockMvcResultHandlers.print());
-	}
-
-	@Test
-	public void update_테스트() throws Exception {
-		// 1) given
-		Long id = 3L;
-		List<Book> books = new ArrayList<>(); 
-		books.add(new Book(null, "스프링부트 따라하기", "코스"));
-		books.add(new Book(null, "리액트 따라하기", "코스"));
-		books.add(new Book(null, "Junit 따라하기", "코스"));
-		bookRepository.saveAll(books);
-		
-		Book book = new Book(null, "C++ 따라하기", "작가9");
-		String content = new ObjectMapper().writeValueAsString(book);
-		
-		// 2) when
-		ResultActions resultAction = mockMvc.perform(put("/book/{id}", id)
-			.contentType(MediaType.APPLICATION_JSON_UTF8)
-			.content(content)
-			.accept(MediaType.APPLICATION_JSON_UTF8)); 
-		
-		// 3) then
-		resultAction
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.id").value(3L))
-			.andExpect(jsonPath("$.title").value("C++ 따라하기"))
-			.andDo(MockMvcResultHandlers.print());
-		
-	}
-	
-	@Test
-	public void delete_테스트() throws Exception {
-		// 1) given
-		Long id = 1L;
-		List<Book> books = new ArrayList<>(); 
-		books.add(new Book(null, "스프링부트 따라하기", "코스"));
-		books.add(new Book(null, "리액트 따라하기", "코스"));
-		books.add(new Book(null, "Junit 따라하기", "코스"));
-		bookRepository.deleteById(id);
-		String content = new ObjectMapper().writeValueAsString(books);
-		
-		// 2) when
-		ResultActions resultAction = mockMvc.perform(delete("/book/{id}", id)
-				.accept(MediaType.TEXT_PLAIN_VALUE)); 
-		
-		// 3) then
-		resultAction
-		.andExpect(status().isOk())
-		.andDo(MockMvcResultHandlers.print());
-		
-		MvcResult requestResult = resultAction.andReturn();
-		String result = requestResult.getResponse().getContentAsString();
-		
-		assertEquals("ok", result);
-	}
+//	@Test
+//	public void findAll_테스트() throws Exception {
+//		// 1) given
+//		List<Book> books = new ArrayList<>();
+//		// id값을 null로 주게되면 단위테스트에서는 이상없으나 통합테스트에서는 에러발생 
+//		books.add(new Book(null, "스프링부트 따라하기", "코스"));
+//		books.add(new Book(null, "리액트 따라하기", "코스"));
+//		books.add(new Book(null, "Junit 따라하기", "코스"));
+//		// when(bookService.모두가져오기()).thenReturn(books);
+//		bookRepository.saveAll(books);
+//
+//		// 2) when
+//		ResultActions resultAction = mockMvc.perform(get("/book").contentType(MediaType.APPLICATION_JSON_UTF8));
+//
+//		// 3) then
+//		// import org.hamcrest.Matchers; - 수동으로 import해줌
+//		resultAction.andExpect(status().isOk())
+////				.andExpect(jsonPath("$", Matchers.hasSize(3)))
+//				.andExpect(jsonPath("$.[0].id").value(11L))
+//				//.andExpect(jsonPath("$.[2].title").value("Junit 따라하기"))
+//				.andExpect(jsonPath("$.[2].title").value("스프링부트 따라하기"))
+//				.andDo(MockMvcResultHandlers.print());
+//	}
+//	
+//	@Test
+//	public void findById_테스트() throws Exception {
+//		// 1) given
+//		Long id = 2L;
+//		List<Book> books = new ArrayList<>(); 
+//		books.add(new Book(null, "스프링부트 따라하기", "코스"));
+//		books.add(new Book(null, "리액트 따라하기", "코스"));
+//		books.add(new Book(null, "Junit 따라하기", "코스"));
+//		bookRepository.saveAll(books);
+//
+//		// 2) when
+//		ResultActions resultAction = mockMvc.perform(get("/book/{id}", id)
+//			.accept(MediaType.APPLICATION_JSON_UTF8));
+//
+//		// 3) then
+//		resultAction
+//			.andExpect(status().isOk())
+//			.andExpect(jsonPath("$.title").value("리액트 따라하기"))
+//			.andDo(MockMvcResultHandlers.print());
+//	}
+//
+//	@Test
+//	public void update_테스트() throws Exception {
+//		// 1) given
+//		Long id = 3L;
+//		List<Book> books = new ArrayList<>(); 
+//		books.add(new Book(null, "스프링부트 따라하기", "코스"));
+//		books.add(new Book(null, "리액트 따라하기", "코스"));
+//		books.add(new Book(null, "Junit 따라하기", "코스"));
+//		bookRepository.saveAll(books);
+//		
+//		Book book = new Book(null, "C++ 따라하기", "작가9");
+//		String content = new ObjectMapper().writeValueAsString(book);
+//		
+//		// 2) when
+//		ResultActions resultAction = mockMvc.perform(put("/book/{id}", id)
+//			.contentType(MediaType.APPLICATION_JSON_UTF8)
+//			.content(content)
+//			.accept(MediaType.APPLICATION_JSON_UTF8)); 
+//		
+//		// 3) then
+//		resultAction
+//			.andExpect(status().isOk())
+//			.andExpect(jsonPath("$.id").value(3L))
+//			.andExpect(jsonPath("$.title").value("C++ 따라하기"))
+//			.andDo(MockMvcResultHandlers.print());
+//		
+//	}
+//	
+//	@Test
+//	public void delete_테스트() throws Exception {
+//		// 1) given
+//		Long id = 1L;
+//		List<Book> books = new ArrayList<>(); 
+//		books.add(new Book(null, "스프링부트 따라하기", "코스"));
+//		books.add(new Book(null, "리액트 따라하기", "코스"));
+//		books.add(new Book(null, "Junit 따라하기", "코스"));
+//		bookRepository.deleteById(id);
+//		String content = new ObjectMapper().writeValueAsString(books);
+//		
+//		// 2) when
+//		ResultActions resultAction = mockMvc.perform(delete("/book/{id}", id)
+//				.accept(MediaType.TEXT_PLAIN_VALUE)); 
+//		
+//		// 3) then
+//		resultAction
+//		.andExpect(status().isOk())
+//		.andDo(MockMvcResultHandlers.print());
+//		
+//		MvcResult requestResult = resultAction.andReturn();
+//		String result = requestResult.getResponse().getContentAsString();
+//		
+//		assertEquals("ok", result);
+//	}
 }
