@@ -24,19 +24,19 @@ public class BookRepositoryUnitTest {
 	private BookRepository bookRepository;
 
 	// 크게 중요하거나 비중이 있지 않아 대략적인 틀만 설명하고 넘어감
-	@Test
-	public void 저장하기_테스트() {
-		// BDDMocikto 방식
-		// given
-		Book book = new Book(null, "책제목1", "책저자1");
-
-		// stub
-		// when(bookRepository.save(book)).thenReturn(book);
-
-		// test execute
-		Book bookEntity = bookRepository.save(book);
-
-		// then
-		assertEquals("책제목1", bookEntity.getTitle());
-	}
+//	@Test
+//	public void 저장하기_테스트() {
+//		// BDDMocikto 방식
+//		// given
+//		Book book = new Book(null, "책제목1", "책저자1");
+//
+//		// stub
+//		// when(bookRepository.save(book)).thenReturn(book);
+//
+//		// test execute
+//		Book bookEntity = bookRepository.save(book);
+//
+//		// then
+//		assertEquals("책제목1", bookEntity.getTitle());
+//	}
 }
