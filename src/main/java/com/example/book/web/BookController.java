@@ -28,7 +28,7 @@ public class BookController {
 	@PostMapping("/book")
 	public ResponseEntity<?> save(@RequestBody Book book){	
 		System.out.println(book);
-		System.out.println("jenkins webhook");
+		System.out.println("jenkins webhook2");
 		return new ResponseEntity<>(bookService.저장하기(book), HttpStatus.CREATED);
 		// return new ResponseEntity<>(bookService.저장하기(book), HttpStatus.BAD_REQUEST);
 	}
