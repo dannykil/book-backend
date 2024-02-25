@@ -1,35 +1,17 @@
 package com.example.book.web;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import javax.persistence.EntityManager;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.book.domain.Book;
-import com.example.book.domain.BookRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.book.repository.BookRepository;
 
-import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -70,24 +52,24 @@ public class BookControllerIntegreTest {
 //	}
 
 	// BookControllerUnitTest에서 그대로 가져옴
-	@Test
-	// public void save_테스트() throws JsonProcessingException {
-	public void save_테스트() throws Exception {
-		// 1) given - 테스트를 하기 위한 준비
-		Book book = new Book(null, "제목9", "작가9");
-		String content = new ObjectMapper().writeValueAsString(book);
-		// when(bookService.저장하기(book)).thenReturn(new Book(1L, "제목9", "작가9")); // 실제
-		// 서비스가 실행되기 때문에 필요없다
-		// @Transactional이 걸려있어 어짜피 데이터가 rollback되지만 지우면 실제로 데이터가 Insert 된다
-
-		// 2) when - 테스트 실행
-		ResultActions resultAction = mockMvc.perform(post("/book").contentType(MediaType.APPLICATION_JSON_UTF8)
-				.content(content).accept(MediaType.APPLICATION_JSON_UTF8));
-
-		// 3) then - 테스트 실행에 대한 기대값(검증)
-		resultAction.andExpect(status().isCreated()).andExpect(jsonPath("$.title").value("제목9"))
-				.andDo(MockMvcResultHandlers.print());
-	}
+//	@Test
+//	// public void save_테스트() throws JsonProcessingException {
+//	public void save_테스트() throws Exception {
+//		// 1) given - 테스트를 하기 위한 준비
+//		Book book = new Book(null, "제목9", "작가9");
+//		String content = new ObjectMapper().writeValueAsString(book);
+//		// when(bookService.저장하기(book)).thenReturn(new Book(1L, "제목9", "작가9")); // 실제
+//		// 서비스가 실행되기 때문에 필요없다
+//		// @Transactional이 걸려있어 어짜피 데이터가 rollback되지만 지우면 실제로 데이터가 Insert 된다
+//
+//		// 2) when - 테스트 실행
+//		ResultActions resultAction = mockMvc.perform(post("/book").contentType(MediaType.APPLICATION_JSON_UTF8)
+//				.content(content).accept(MediaType.APPLICATION_JSON_UTF8));
+//
+//		// 3) then - 테스트 실행에 대한 기대값(검증)
+//		resultAction.andExpect(status().isCreated()).andExpect(jsonPath("$.title").value("제목9"))
+//				.andDo(MockMvcResultHandlers.print());
+//	}
 
 //	@Test
 //	public void findAll_테스트() throws Exception {

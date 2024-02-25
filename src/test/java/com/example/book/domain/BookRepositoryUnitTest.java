@@ -9,6 +9,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.book.repository.BookRepository;
+
 // 단위테스트 - DB 관련된 Bean이 IoC에 등록되면 됨
 // @AutoConfigureTestDatabase : DB를 실제DB로 사용할 것인지 가짜(다른)DB로 사용할 것인지 설정할 수 있는 애노테이션
 // @AutoConfigureTestDatabase(replace = Replace.ANY)  : 가짜(내장)DB 사용

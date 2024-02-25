@@ -12,13 +12,13 @@ spring:
 #    password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
     # local
-#    url: jdbc:mysql://localhost:3306/book?serverTimezone=Asia/Seoul
-#    username: root
-#    password: 111111
-    # dev
-    url: jdbc:mysql://palpage.cxmywrhxhdno.ap-northeast-2.rds.amazonaws.com:3306/book?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/book?serverTimezone=Asia/Seoul
     username: root
-    password: 11111111
+    password: 111111
+    # dev
+#    url: jdbc:mysql://palpage.cxmywrhxhdno.ap-northeast-2.rds.amazonaws.com:3306/book?serverTimezone=Asia/Seoul
+#    username: root
+#    password: 11111111
   
   jpa: 
     hibernate:
@@ -26,3 +26,5 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
+    properties:
+      hibernate.format_sql: true

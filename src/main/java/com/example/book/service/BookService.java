@@ -5,8 +5,8 @@ package com.example.book.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.book.domain.Book;
-import com.example.book.domain.BookRepository;
+import com.example.book.model.Book;
+import com.example.book.repository.BookRepository;
 
 import lombok.RequiredArgsConstructor;
 

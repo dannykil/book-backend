@@ -9,8 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.example.book.domain.Book;
-import com.example.book.domain.BookRepository;
+import com.example.book.model.Book;
+import com.example.book.repository.BookRepository;
 
 //단위테스트 - 서비스와 관련된 애들만 메모리에 띄우면 됨 
 @ExtendWith(MockitoExtension.class)
