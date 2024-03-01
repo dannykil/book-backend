@@ -34,17 +34,17 @@ public class BookControllerIntegreTest {
 	
 	// 각각의 모든 테스트 함수가 실행되기 직전에 실행됨  
 	// @BeforeEach와 @AfterEach를 선언하여 자동화 할 수 있다. 하지만 실수할 수 있으니 필요할 때마다 선언해서 사용하겠다. 
-	@BeforeEach
-	public void init() {
+//	@BeforeEach
+//	public void init() {
 //		List<Book> books = new ArrayList<>(); 
 //		books.add(new Book(null, "스프링부트 따라하기", "코스"));
 //		books.add(new Book(null, "리액트 따라하기", "코스"));
 //		books.add(new Book(null, "Junit 따라하기", "코스"));
 //		bookRepository.saveAll(books);
-		
-		//2023.07.07 수
-		//entityManager.createNativeQuery("ALTER TABLE book ALTER COLUMN id RESTART WITH 1").executeUpdate();
-	}
+//		
+//		//2023.07.07 수
+//		//entityManager.createNativeQuery("ALTER TABLE book ALTER COLUMN id RESTART WITH 1").executeUpdate();
+//	}
 	
 //	@AfterEach
 //	public void end() {
