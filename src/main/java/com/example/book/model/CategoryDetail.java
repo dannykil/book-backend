@@ -17,11 +17,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Category {
+public class CategoryDetail {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
-	private String categoryName;
+	private String categoryId;
 	private String writer;
 	private String writerCode;
 	@CreationTimestamp // 시간이 자동으로 입력된다.
