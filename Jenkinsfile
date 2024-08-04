@@ -3,22 +3,22 @@ pipeline {
     
     // git 프로젝트 credentials 는 access token 으로 사용
     stages {
-        stage('Prepare') {
-            steps {
-                git branch: 'master',
-                    // url: 'https://{git access token}@github.com/mooh2jj/board_vue_backend.git'
-                    url: 'https://github.com/dannykil/book-backend.git'
-            }
+        // stage('Prepare') {
+        //     steps {
+        //         git branch: 'master',
+        //             // url: 'https://{git access token}@github.com/mooh2jj/board_vue_backend.git'
+        //             url: 'https://github.com/dannykil/book-backend.git'
+        //     }
 
-            post {
-                success {
-                    sh 'echo "Successfully Cloned Repository"'
-                }
-                failure {
-                    sh 'echo "Fail Cloned Repository"'
-                }
-            }
-        }
+        //     post {
+        //         success {
+        //             sh 'echo "Successfully Cloned Repository"'
+        //         }
+        //         failure {
+        //             sh 'echo "Fail Cloned Repository"'
+        //         }
+        //     }
+        // }
 
         stage('Build') {
             steps {
