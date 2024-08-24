@@ -54,6 +54,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // 3 override
 //        configuration.addAllowedOrigin("*");
 //        configuration.addAllowedHeader("*");
 //        configuration.addAllowedMethod("*");
+        configuration.addAllowedOrigin("http://localhost");
+        configuration.addAllowedOrigin("http://localhost:80");
+        configuration.addAllowedOrigin("http://192.168.56.33");
+        configuration.addAllowedOrigin("http://192.168.56.33:80");
         configuration.addAllowedOrigin("http://localhost:3000");
         configuration.addAllowedOrigin("http://localhost:3001");
         configuration.addAllowedOrigin("http://13.124.143.225");
