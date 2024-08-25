@@ -38,7 +38,7 @@ public class CategoryController {
 	@CrossOrigin // 외부에서 들어오는 자바스크립트 요청을 허용해준다 
 	@GetMapping("/api/category")
 	public ResponseEntity<?> findAll(){
-		System.out.println("Category List - 1");
+		System.out.println("Category List - 12");
 		return new ResponseEntity<>(categoryService.findAll(), HttpStatus.OK);
 	}
 	
