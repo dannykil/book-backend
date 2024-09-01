@@ -1,6 +1,10 @@
 pipeline {
     agent any 	// 사용 가능한 에이전트에서 이 파이프라인 또는 해당 단계를 실행
     
+    tools {
+        maven "Maven-3.9.9"
+    }
+    
     // git 프로젝트 credentials 는 access token 으로 사용
     stages {
          stage('Prepare') {
@@ -20,14 +24,12 @@ pipeline {
              }
          }
 
-        stage('Build') {
+        stage('project build') {
             steps {
             	// gralew이 있어야됨. git clone해서 project를 가져옴.
-                sh 'chmod +x gradlew'
-                sh  './gradlew --warning-mode=all --stacktrace clean build -x test'
-
-
-                sh 'ls -al ./build'
+                // sh 'chmod +x gradlew'
+                // sh  './gradlew --warning-mode=all --stacktrace clean build -x test'
+                sh 'mvn -Dmaven.test.failure.ignore=true -N -f pom.xml clean package'
             }
             post {
                 success {
@@ -49,7 +51,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo  'jar파일 이동 및 실행'
-                sh 'cd book-backend-container-local'
+                // sh 'cd book-backend-container-local'
                 sh 'ls -al'
             }
         }
