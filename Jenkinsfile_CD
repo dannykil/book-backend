@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('git clone') {
+            steps {
+                echo 'git clone'
+                git branch: 'master', url: 'https://github.com/dannykil/chart-book.git'
+            }
+         }
+         
+        stage('pod delete') {
+            steps {
+                dir('./templates') {
+                    sh 'pwd'
+                    sh 'ls -al'
+                    sh 'sudo kubectl get pods -A'
+                    // sh 'sudo kubectl delete -n default pod book-db-pod-1'
+                    sh 'sudo kubectl delete -n default pod book-backend-pod-1'
+                }
+            }
+        }
+        
+        stage('pod create') {
+            steps {
+                dir('./templates') {
+                    // sh 'sudo kubectl apply -f ./book-db-pod-1.yaml'
+                    sh 'sudo kubectl apply -f ./book-backend-pod-1.yaml'
+                }
+            }
+        }
+    }
+}
