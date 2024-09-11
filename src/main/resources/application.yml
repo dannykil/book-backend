@@ -12,17 +12,22 @@ spring:
 #    password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
     # local
-#    url: jdbc:mysql://localhost:3307/book?serverTimezone=Asia/Seoul
+#    url: jdbc:mysql://localhost:3306/book?serverTimezone=Asia/Seoul
 #    username: root
-#    password: root1234
+#    password: 11111111
     
     # dev
 #    url: jdbc:mysql://book.cxmywrhxhdno.ap-northeast-2.rds.amazonaws.com:3306/book?serverTimezone=Asia/Seoul
 #    username: root
 #    password: 11111111
 
-    # local
-    url: jdbc:mysql://192.168.56.31:30002/book?serverTimezone=Asia/Seoul
+    # k8s-node1
+#    url: jdbc:mysql://192.168.56.31:30002/book?serverTimezone=Asia/Seoul
+#    username: root
+#    password: root1234
+
+    # k8s-node2
+    url: jdbc:mysql://192.168.56.32:30002/book?serverTimezone=Asia/Seoul
     username: root
     password: root1234
 
