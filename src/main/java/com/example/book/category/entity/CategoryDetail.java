@@ -1,4 +1,4 @@
-package com.example.book.model;
+package com.example.book.category.entity;
 
 import java.sql.Timestamp;
 
@@ -17,14 +17,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Category {
+public class CategoryDetail {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
-	private String categoryName;
+	private String categoryId;
 	private String writer;
 	private String writerCode;
+	private String categoryName;
+	private String note;
 	@CreationTimestamp // 시간이 자동으로 입력된다.
 	private Timestamp insertDT;
-	private String note;
 }

@@ -1,12 +1,12 @@
-package com.example.book.service;
+package com.example.book.category.service;
 
   import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.book.model.CategoryDetail;
-import com.example.book.repository.CategoryDetailRepository;
+import com.example.book.category.entity.CategoryDetail;
+import com.example.book.category.repository.CategoryDetailRepository;
 
 import lombok.RequiredArgsConstructor;
 
