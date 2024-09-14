@@ -14,6 +14,8 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<org.projectlombok.version>1.18.34</org.projectlombok.version>
 	</properties>
 	<dependencies>
 		<!-- JSP 템플릿 엔진 -->
@@ -114,7 +116,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		
+		<dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+    	</dependency>
+    
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -138,23 +146,38 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
-
 	</dependencies>
 
 	<build>
 		<plugins>
+			
+			<!-- https://subji.github.io/posts/2020/08/20/mapstructandlombokcrash
+			https://stackoverflow.com/questions/75931701/springboot-annotationprocessorpaths-not-allowed-in-pom-xml-on-intellij -->
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <source>${java.version}</source>
+	                <target>${java.version}</target>
+	                <annotationProcessorPaths>
+	                    <path>
+	                        <groupId>org.mapstruct</groupId>
+	                        <artifactId>mapstruct-processor</artifactId>
+	                        <version>${org.mapstruct.version}</version>
+	                    </path>
+	                    <path>
+				          <groupId>org.projectlombok</groupId>
+				          <artifactId>lombok</artifactId>
+				          <version>${org.projectlombok.version}</version>
+				        </path>
+	                </annotationProcessorPaths>
+	                <compilerArgs>
+	                    <compilerArg>
+	                        -Amapstruct.defaultComponentModel=spring
+	                    </compilerArg>
+	                </compilerArgs>
+	            </configuration>
+        	</plugin>
 
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
@@ -176,6 +199,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			
 		</plugins>
 	</build>
 
