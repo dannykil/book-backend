@@ -24,13 +24,13 @@ public class UserController {
 //		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 //	}
 	
-	@PostMapping("/api/user/insert")
-	public ResponseDto<Integer> insert(@RequestBody User user) {
-		System.out.println(user);
-		userService.insertUser(user);
-		
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
-	}
+//	@PostMapping("/api/user/insert")
+//	public ResponseDto<Integer> insert(@RequestBody User user) {
+//		System.out.println(user);
+//		userService.insertUser(user);
+//		
+//		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+//	}
 	
 	
 //	@PutMapping("/api/employee/update/{id}")
