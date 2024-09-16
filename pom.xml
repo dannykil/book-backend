@@ -146,6 +146,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+	        <artifactId>mapstruct-processor</artifactId>
+	        <version>${org.mapstruct.version}</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -153,7 +160,7 @@
 			
 			<!-- https://subji.github.io/posts/2020/08/20/mapstructandlombokcrash
 			https://stackoverflow.com/questions/75931701/springboot-annotationprocessorpaths-not-allowed-in-pom-xml-on-intellij -->
-			<plugin>
+			<!-- <plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
 	            <configuration>
@@ -177,7 +184,25 @@
 	                    </compilerArg>
 	                </compilerArgs>
 	            </configuration>
-        	</plugin>
+        	</plugin> -->
+        	
+        	<plugin>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+	        </plugin>
+        	
+        	<!-- <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-jar-plugin</artifactId>
+		        <configuration>
+		          <archive>
+		            <manifest>
+		              <addClasspath>true</addClasspath>
+		              <mainClass>com.example.book.BookApplication</mainClass>
+		            </manifest>
+		          </archive>
+		        </configuration>
+	      	</plugin> -->
 
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
