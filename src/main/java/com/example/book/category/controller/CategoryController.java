@@ -43,7 +43,7 @@ public class CategoryController {
 		String health = null;
 		
 		try {
-			health = "health check test01 - server : " + InetAddress.getLocalHost().getHostAddress().toString() + System.lineSeparator();
+			health = "health check test02 - server : " + InetAddress.getLocalHost().getHostAddress().toString() + System.lineSeparator();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
