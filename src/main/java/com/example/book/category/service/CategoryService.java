@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.book.category.entity.Category;
+import com.example.book.category.entity.CategoryDetail;
+import com.example.book.category.repository.CategoryDetailRepository;
 import com.example.book.category.repository.CategoryRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,25 +19,54 @@ import lombok.RequiredArgsConstructor;
 public class CategoryService {
 	
 	private final CategoryRepository categoryRepository;
+	private final CategoryDetailRepository categoryDetailRepository;
 	
 	@Transactional(readOnly=true)
 	public List<Category> findAll() {
 		
-//		return categoryRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
 		List<Category> category = categoryRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
 		
         if (category.isEmpty()) {
             return new ArrayList<>();
         }
         
-        System.out.println("category service : " + category);
+//        System.out.println("category service : " + category);
         
         return category;
 	}
 	
 	@Transactional // 서비스 함수가 종료될 때 commit할지 rollback할지 트랜잭션 관리하겠다.
-	public Category 저장하기(Category category) {
+	public Category writeCategory(Category category) {
+
 		return categoryRepository.save(category);
+	}
+	
+	@Transactional 
+	public List<CategoryDetail> writeCategoryDetail(List<CategoryDetail> categoryDetail) {
+		System.out.println("categoryDetailResult : " + categoryDetail);
+        
+		return categoryDetailRepository.saveAll(categoryDetail);
+	}
+	
+	@Transactional(readOnly=true) // JPA 변경감지라는 내부기능이 활성화 안됨. update 시 정합성 유지해줌.insert의 유령데이터현상(팬텀현상)은 못막음.
+	public Category findById(Long id) {
+		
+		return categoryRepository.findById(id).orElseThrow(()->new IllegalArgumentException("id를 확인해주세요!!"));
+	}
+	
+	@Transactional(readOnly=true)
+	public List<CategoryDetail> findAllByCategoryId(String categoryId) {
+		
+//		List<CategoryDetail> categoryDetail = categoryDetailRepository.findAllById(Sort.by(Sort.Direction.DESC, "id"));
+		List<CategoryDetail> categoryDetail = categoryDetailRepository.findAllByCategoryId(categoryId);
+		
+        if (categoryDetail.isEmpty()) {
+            return new ArrayList<>();
+        }
+        
+        System.out.println("category service : " + categoryDetail);
+        
+        return categoryDetail;
 	}
 	
 //	@Transactional(readOnly=true)
