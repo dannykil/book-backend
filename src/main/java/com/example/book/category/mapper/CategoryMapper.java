@@ -67,36 +67,36 @@ public interface CategoryMapper {
     List<CategoryListDto> entityListToSimpleResponseDtoList(List<Category> category);
     
     
-    static CategoryDto EntityToCategoryDto(Category category, List<CategoryDetail> categoryDetails) {
-		
-        if ( category == null ) {
-            return null;
-        }
-
-        CategoryDto categoryDto = new CategoryDto();
-        
-        categoryDto.setId( category.getId() );
-        categoryDto.setCategoryName( category.getCategoryName() );
-        categoryDto.setNote( category.getNote() );
-        categoryDto.setInsertDT( category.getInsertDT() );
-        
-        
-        List<CategoryDetailDto> categoryDetailDtos = new ArrayList<>();
-
-        for(CategoryDetail categoryDetail : categoryDetails){ 
-        	CategoryDetailDto categoryDetailDto = new CategoryDetailDto();
-        	
-        	categoryDetailDto.setId(categoryDetail.getId());
-        	categoryDetailDto.setCategoryId(categoryDetail.getCategoryId());
-        	categoryDetailDto.setCategoryDetailName(categoryDetail.getCategoryDetailName());
-        	categoryDetailDto.setCategoryDetailNote(categoryDetail.getCategoryDetailNote());
-        	categoryDetailDto.setPriority(categoryDetail.getPriority());
-
-        	categoryDetailDtos.add(categoryDetailDto); 
-        }
-        
-        categoryDto.setCategoryDetailDto( categoryDetailDtos );
-        
-        return categoryDto;
-    }
+//    static CategoryDto EntityToCategoryDto(Category category, List<CategoryDetail> categoryDetails) {
+//		
+//        if ( category == null ) {
+//            return null;
+//        }
+//
+//        CategoryDto categoryDto = new CategoryDto();
+//        
+//        categoryDto.setId( category.getId() );
+//        categoryDto.setCategoryName( category.getCategoryName() );
+//        categoryDto.setNote( category.getNote() );
+//        categoryDto.setInsertDT( category.getInsertDT() );
+//        
+//        
+//        List<CategoryDetailDto> categoryDetailDtos = new ArrayList<>();
+//
+//        for(CategoryDetail categoryDetail : categoryDetails){ 
+//        	CategoryDetailDto categoryDetailDto = new CategoryDetailDto();
+//        	
+//        	categoryDetailDto.setId(categoryDetail.getId());
+//        	categoryDetailDto.setCategoryId(categoryDetail.getCategoryId());
+//        	categoryDetailDto.setCategoryDetailName(categoryDetail.getCategoryDetailName());
+//        	categoryDetailDto.setCategoryDetailNote(categoryDetail.getCategoryDetailNote());
+//        	categoryDetailDto.setPriority(categoryDetail.getPriority());
+//
+//        	categoryDetailDtos.add(categoryDetailDto); 
+//        }
+//        
+//        categoryDto.setCategoryDetailDto( categoryDetailDtos );
+//        
+//        return categoryDto;
+//    }
 }
