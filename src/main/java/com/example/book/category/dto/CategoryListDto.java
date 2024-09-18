@@ -1,6 +1,7 @@
 package com.example.book.category.dto;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +30,8 @@ public class CategoryListDto {
 	
 	private Timestamp insertDT;
 	
+	private List<CategoryDetailDto> categoryDetailDto;
+	
 	public CategoryListDto(CategoryDto categoryDto) {
         this.id = categoryDto.getId();
         this.categoryName = categoryDto.getCategoryName();
@@ -36,6 +39,7 @@ public class CategoryListDto {
         this.writerCode = categoryDto.getWriterCode();
         this.note = categoryDto.getNote();
         this.insertDT = categoryDto.getInsertDT();
+        this.categoryDetailDto = categoryDto.getCategoryDetailDto();
     }
 	
 	public static CategoryListDto of(CategoryDto categoryDto) {
