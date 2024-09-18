@@ -49,7 +49,7 @@ public class CategoryController {
 //			System.out.println("getHostName() : " + InetAddress.getLocalHost().getHostName());
 //			System.out.println("getHostAddress() : " + InetAddress.getLocalHost().getHostAddress());
 //			System.out.println("getAddress() : " + InetAddress.getLocalHost().getAddress());
-			System.out.println(System.getProperty("user.name").toLowerCase() + "@" + InetAddress.getLocalHost().getHostAddress() + "/category");
+			System.out.println("########## >>>>> " + System.getProperty("user.name").toLowerCase() + "@" + InetAddress.getLocalHost().getHostAddress() + "/category");
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

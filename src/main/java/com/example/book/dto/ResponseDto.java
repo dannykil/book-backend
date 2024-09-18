@@ -18,7 +18,7 @@ public class ResponseDto {
 	private Object data;
 
     public static ResponseDto of(Object data) {
-    	System.out.println("ResponseDto data : " + data);
+//    	System.out.println("ResponseDto data : " + data);
     	
         return new ResponseDto(data);
     }
