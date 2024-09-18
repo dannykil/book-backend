@@ -80,17 +80,17 @@ public class CategoryController {
 //        );
 	}
 	
-	@GetMapping("/category/{categoryId}")
-	public ResponseEntity<?> findById(@PathVariable("categoryId") Long id){
-		
-		Category category = categoryService.findById(id);
-		List<CategoryDetail> categoryDetails =  categoryService.findAllByCategoryId(category.getId().toString());
-		
-		CategoryDto categoryDto = CategoryMapper.EntityToCategoryDto(category, categoryDetails);
-		System.out.println("categoryDto : " + categoryDto);
-		
-		return new ResponseEntity<>(categoryDto, HttpStatus.OK);
-	}
+//	@GetMapping("/category/{categoryId}")
+//	public ResponseEntity<?> findById(@PathVariable("categoryId") Long id){
+//		
+//		Category category = categoryService.findById(id);
+//		List<CategoryDetail> categoryDetails =  categoryService.findAllByCategoryId(category.getId().toString());
+//		
+//		CategoryDto categoryDto = CategoryMapper.EntityToCategoryDto(category, categoryDetails);
+//		System.out.println("categoryDto : " + categoryDto);
+//		
+//		return new ResponseEntity<>(categoryDto, HttpStatus.OK);
+//	}
 	
 	
 //	@GetMapping("/category")
