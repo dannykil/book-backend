@@ -49,7 +49,7 @@ public class CategoryController {
 		}
 		
 		return new ResponseEntity<>(
-		        ResponseDto.of("health check - server : " + health + "\n"),
+		        ResponseDto.of("health check - server : " + health + System.lineSeparator()),
 		        HttpStatus.OK
 		);
 	}	 
