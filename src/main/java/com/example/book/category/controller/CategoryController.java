@@ -37,6 +37,23 @@ public class CategoryController {
 	
 	private final CategoryMapper categoryMapper;
 	
+	@GetMapping("/health")
+	public ResponseEntity<?> health(){
+		
+		String health = null;
+		try {
+			health = InetAddress.getLocalHost().getHostAddress().toString();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return new ResponseEntity<>(
+		        ResponseDto.of("health check - server : " + health),
+		        HttpStatus.OK
+		);
+	}	 
+	
 	@GetMapping("/category")
 	public ResponseEntity<?> findAll(){
 		
