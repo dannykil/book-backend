@@ -48,26 +48,23 @@ public class CategoryService {
 		return categoryDetailRepository.saveAll(categoryDetail);
 	}
 	
-	@Transactional(readOnly=true) // JPA 변경감지라는 내부기능이 활성화 안됨. update 시 정합성 유지해줌.insert의 유령데이터현상(팬텀현상)은 못막음.
-	public Category findById(Long id) {
-		
-		return categoryRepository.findById(id).orElseThrow(()->new IllegalArgumentException("id를 확인해주세요!!"));
-	}
-	
-	@Transactional(readOnly=true)
-	public List<CategoryDetail> findAllByCategoryId(String categoryId) {
-		
-//		List<CategoryDetail> categoryDetail = categoryDetailRepository.findAllById(Sort.by(Sort.Direction.DESC, "id"));
-		List<CategoryDetail> categoryDetail = categoryDetailRepository.findAllByCategoryId(categoryId);
-		
-        if (categoryDetail.isEmpty()) {
-            return new ArrayList<>();
-        }
-        
-        System.out.println("category service : " + categoryDetail);
-        
-        return categoryDetail;
-	}
+//	@Transactional(readOnly=true) // JPA 변경감지라는 내부기능이 활성화 안됨. update 시 정합성 유지해줌.insert의 유령데이터현상(팬텀현상)은 못막음.
+//	public Category findById(Long id) {
+//		
+//		return categoryRepository.findById(id).orElseThrow(()->new IllegalArgumentException("id를 확인해주세요!!"));
+//	}
+//	
+//	@Transactional(readOnly=true)
+//	public List<CategoryDetail> findAllByCategoryId(String categoryId) {
+//		
+//		List<CategoryDetail> categoryDetail = categoryDetailRepository.findAllByCategoryId(categoryId);
+//		
+//        if (categoryDetail.isEmpty()) {
+//            return new ArrayList<>();
+//        }
+//        
+//        return categoryDetail;
+//	}
 	
 //	@Transactional(readOnly=true)
 //	public List<Category> findAll() {
